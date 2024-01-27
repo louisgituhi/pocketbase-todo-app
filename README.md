@@ -1,8 +1,23 @@
-# React + Vite
+# Pocketbase To-Do App
+An application created with react, tailwind and pocketbase to store your tasks
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Usage
+Clone the repository, then
+Go to [pocketbase.io](https://pocketbase.io/)
+and download the executable
+Once downloaded copy the exe to the root project directory
+Use the command:
+```
+./pocketbase serve
+```
+Create a new collection called 'tasks'
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Open another terminal and type:
+```
+npm install
+```
+to install all dependencies
+Once install, run the command:
+```
+npm run dev
+```
