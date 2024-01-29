@@ -1,6 +1,5 @@
 import { Table } from "flowbite-react"
 import useFetch from "./useFetch";
-import ReactTimeAgo from 'react-time-ago'
 
 
 const TableComponent = () => {
@@ -14,7 +13,6 @@ const TableComponent = () => {
           <Table.HeadCell>Task Name</Table.HeadCell>
           <Table.HeadCell>Type</Table.HeadCell>
           <Table.HeadCell>Deadline</Table.HeadCell>
-          <Table.HeadCell>Completed</Table.HeadCell>
           <Table.HeadCell>
             <span className="sr-only">Edit</span>
           </Table.HeadCell>
@@ -29,7 +27,6 @@ const TableComponent = () => {
             </Table.Cell>
             <Table.Cell>{ task.Type }</Table.Cell>
             <Table.Cell> { task.Deadline.slice(0, 10) }</Table.Cell>
-            <Table.Cell>{ String(task.Completed) }</Table.Cell>
             <Table.Cell>
               <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
                 Edit
