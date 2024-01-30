@@ -1,5 +1,7 @@
 import PocketBase from "pocketbase"
-import { Label, TextInput, Select, Datepicker, Button } from "flowbite-react";
+import { Label, TextInput, Select, Datepicker, Button, Toast } from "flowbite-react";
+import { HiFire } from "react-icons/hi"
+
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
@@ -64,11 +66,6 @@ const AddTask = () => {
             </input>
             
             <Button type="submit" color="dark">Add Task</Button>
-
-
-            <p>{task}</p>
-            <p>{type}</p>
-            <p>{deadline}</p>
 
         </form>
       </div>
