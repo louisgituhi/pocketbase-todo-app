@@ -1,10 +1,23 @@
 import { Table } from "flowbite-react"
 import useFetch from "./useFetch";
+import PocketBase from "pocketbase";
 
 
 const TableComponent = () => {
   
   const { tasks } = useFetch();
+  const pb = new PocketBase('http://127.0.0.1:8090')
+
+  const handleDelete = (task) => {
+    pb.collection("tasks")
+    .delete(task.id)
+    .then(() => {
+    alert("Task has been deleted")
+    })
+    .catch((e) => {
+    alert("unable to delete task" + e.message)
+    })
+  }
 
     return ( 
         <div className="overflow-x-auto">
@@ -28,14 +41,15 @@ const TableComponent = () => {
             <Table.Cell>{ task.Type }</Table.Cell>
             <Table.Cell> { task.Deadline.slice(0, 10) }</Table.Cell>
             <Table.Cell>
-              <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
+              <button className="font-bold p-2 bg-green-400 rounded-md text-black hover:underline dark:text-cyan-500">
                 Edit
-              </a>
+              </button>
             </Table.Cell>
             <Table.Cell>
-              <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
+              <button className="font-bold p-2 bg-red-600 rounded-md text-white hover:underline dark:text-cyan-500"
+                 onClick={() => {handleDelete(task)}}>
                 Delete
-              </a>
+              </button>
             </Table.Cell>
           </Table.Row>
         </Table.Body>

@@ -1,12 +1,14 @@
 import PocketBase from "pocketbase"
 import { Label, TextInput, Select, Datepicker, Button } from "flowbite-react";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const AddTask = () => {
 
     const [task, setTask] = useState('')
-    const [type, setType] = useState('')
+    const [type, setType] = useState('Personal')
     const [deadline, setDeadline] = useState("")
+    const history = useHistory()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -23,6 +25,7 @@ const AddTask = () => {
         .create(data)
         .then(() => {
             console.log('Task created');
+            history.push("/")
         })
         .catch((e) => {
             console.log(e.message)
